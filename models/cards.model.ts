@@ -30,7 +30,7 @@ const cardSchema = new Schema({
 });
 
 interface ICard extends Document{
-    numero: string;
+    number: string;
     nombre:string;
     cvc:string;
     fechaV:Date;

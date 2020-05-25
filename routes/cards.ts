@@ -7,13 +7,14 @@ const cardRoutes = Router();
 
 // Crear un card
 cardRoutes.post('/create/:userID', ( req: Request, res: Response ) => {
-
+    const body = req.body;
     const card = {
-        nombres  : req.body.firstName,
-        numero   : req.body.lastName,
-        cvc: req.body.documentID,
-        type: req.body.gender,
-        fechaV:   new Date(req.body.fechaNacimiento),
+       
+        number   : req.body.number,
+        nombre : req.body.nombre,
+        cvc: req.body.cvc,
+        type: req.body.type,
+        fechaV:   new Date(req.body.fechaV),
         usuario: req.params.userID
     
     }; 
@@ -30,6 +31,7 @@ cardRoutes.post('/create/:userID', ( req: Request, res: Response ) => {
         res.json({
             ok: false,
             err,
+            card,
             
         });
     });
@@ -41,7 +43,7 @@ cardRoutes.get('/listar/:userID', ( req: Request, res: Response ) => {
     Card.find({ usuario: userID },( err, cardDB ) => {
         if ( err ) throw err;
         if(!cardDB){
-
+ 
             return res.json({
                 ok: false,
                 mensaje: 'afiliado no existe'
@@ -80,12 +82,15 @@ cardRoutes.get('/:userID', ( req: Request, res: Response ) => {
 cardRoutes.post('/update/:tarjetaID', ( req: Request, res: Response ) => {
     const tarjetaID = req.params.tarjetaID;
     const card = {
-        nombres  : req.body.firstName,
-        numero   : req.body.lastName,
-        cvc: req.body.documentID,
-        type: req.body.gender,
-        fechaV:   new Date(req.body.fechaNacimiento),
-        };
+       
+        number   : req.body.number,
+        nombre : req.body.nombre,
+        cvc: req.body.cvc,
+        type: req.body.type,
+        fechaV:   new Date(req.body.fechaV),
+        
+    
+    }; 
         
         Card.findByIdAndUpdate(tarjetaID, card, { new: true }, (err, cardDB) => {
         
