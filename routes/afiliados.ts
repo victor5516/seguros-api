@@ -24,7 +24,7 @@ afiliadosRoutes.post('/create/:userID', ( req: Request, res: Response ) => {
     
     }; 
     
-
+ 
   
     Afiliado.create( afiliado ).then(  async afiliadoDB => {
         

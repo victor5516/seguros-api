@@ -8,6 +8,7 @@ import Helmet from "helmet";
 import * as helmet from 'helmet';
 import fileUpload from 'express-fileupload'
 import cardRoutes from './routes/cards';
+import AseguradorasRoutes from './routes/aseguradoras';
 const server = new Server();
 server.app.use(Helmet());
 
@@ -21,6 +22,7 @@ server.app.use( cors ({ origin:true, credentials:true}))
 server.app.use('/user', userRoutes );
 server.app.use('/afiliados',  afiliadosRoutes);
 server.app.use('/cards',  cardRoutes);
+server.app.use('/aseguradoras',  AseguradorasRoutes);
 //FileUpload
 server.app.use(fileUpload({useTempFiles:true}));
 
