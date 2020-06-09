@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { Usuario } from '../models/usuario.model';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import Token from '../classes/token';
 import { verificaToken } from '../middlewares/autenticacion';
 

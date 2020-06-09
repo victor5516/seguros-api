@@ -1,5 +1,5 @@
 import { Schema, model, Document } from 'mongoose';
-import bcrypt from 'bcrypt';
+
 const cardSchema = new Schema({
     number: {
         type: String,
